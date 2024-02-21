@@ -6,15 +6,13 @@ import 'package:weather/core/data/response/weather_response.dart';
 import 'package:weather/core/domain/models/weather_location/weather_location.dart';
 
 abstract class WeatherRepository {
-  Future<Position> getLocation();
   Future<WeatherLocation> getLocalWeather();
   Future<WeatherLocation> getWetherFromLocation(
       {required String location, required String coords});
 }
 
 class WeatherRepositoryImpl implements WeatherRepository {
-  @override
-  Future<Position> getLocation() async {
+  Future<Position> _getLocation() async {
     bool serviceEnabled;
     LocationPermission permission;
 
@@ -41,7 +39,7 @@ class WeatherRepositoryImpl implements WeatherRepository {
 
   @override
   Future<WeatherLocation> getLocalWeather() async {
-    final loc = await getLocation();
+    final loc = await _getLocation();
     final latitude = loc.latitude;
     final longitude = loc.longitude;
     final coordinates = '$latitude,$longitude';

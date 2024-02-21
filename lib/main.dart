@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:weather/core/domain/services/weather_repos.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final repos = WeatherRepositoryImpl();
+  await repos.getLocalWeather();
+  await repos.getWetherFromLocation(
+      coords: '55.7522200,37.6155600', location: 'Москва');
   runApp(const MainApp());
 }
 
