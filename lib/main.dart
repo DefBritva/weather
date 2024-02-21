@@ -6,7 +6,7 @@ void main() async {
   final repos = WeatherRepositoryImpl();
   await repos.getLocalWeather();
   await repos.getWetherFromLocation(
-      coords: '55.7522200,37.6155600', location: 'Москва');
+      coords: '37.6155600 55.7522200', location: 'Москва');
   runApp(const MainApp());
 }
 

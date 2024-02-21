@@ -63,8 +63,9 @@ class WeatherRepositoryImpl implements WeatherRepository {
       final dio = Dio();
 
       final coordsList = coords.split(' ');
-      final latitude = coordsList[1]; // Широта
       final longitude = coordsList[0]; // Долгота
+      final latitude = coordsList[1]; // Широта
+
       final coordinates = '$latitude,$longitude';
 
       final response = await dio
