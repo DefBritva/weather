@@ -11,6 +11,8 @@ dependencies:
   freezed_annotation:
   flutter:
     sdk: flutter
+  dio: ^5.4.1
+  geolocator: ^11.0.0
 
 dev_dependencies:
   freezed:

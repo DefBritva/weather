@@ -1,8 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:weather_app/core/domain/models/astro/astro.dart';
-import 'package:weather_app/core/domain/models/current_weather/current_weather.dart';
-import 'package:weather_app/core/domain/models/weather_forecast/weather_forecast.dart';
-import 'package:weather_app/core/domain/models/weather_hourly/weather_hourly.dart';
+import 'package:weather/core/domain/models/astro/astro.dart';
+import 'package:weather/core/domain/models/current_weather/current_weather.dart';
+import 'package:weather/core/domain/models/weather_forecast/weather_forecast.dart';
+import 'package:weather/core/domain/models/weather_hourly/weather_hourly.dart';
 
 part 'weather_location.freezed.dart';
 
