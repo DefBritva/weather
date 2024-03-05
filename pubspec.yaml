@@ -13,6 +13,16 @@ dependencies:
     sdk: flutter
   dio: ^5.4.1
   geolocator: ^11.0.0
+  flutter_bloc: ^8.1.4
+  flutter_native_splash: ^2.3.13
+  lottie: ^3.0.0
+  flutter_svg: ^2.0.9
+  loading_animation_widget: ^1.2.0+4
+  provider: ^6.1.2
+  scrollable_positioned_list: ^0.3.8
+  delayed_display: ^2.0.0
+  auto_size_text: ^3.0.0
+
 
 dev_dependencies:
   freezed:
@@ -24,3 +34,25 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+spider:
+  
+  generate_tests: true
+  
+  no_comments: true
+  
+  export: true
+  
+  use_part_of: true
+  
+  use_references_list: false
+  
+  package: resources
+  groups:
+    - path: assets/images
+      class_name: Images
+      types: [ .png, .jpg, .jpeg, .webp, .webm, .bmp ]
+    
+    - path: assets/animations
+      class_name: Animations
+      types: [ .json]
