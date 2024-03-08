@@ -3,11 +3,11 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:weather_app/core/utils/user_settings.dart';
-import 'package:weather_app/core/weather_bloc/weather_bloc.dart';
-import 'package:weather_app/core/widgets/none.dart';
-import 'package:weather_app/features/weather/widgets/failure_widget.dart';
-import 'package:weather_app/features/weather/widgets/main/main_widget.dart';
+import 'package:weather/core/utils/user_settings.dart';
+import 'package:weather/core/weather_bloc/weather_bloc.dart';
+import 'package:weather/core/widgets/none.dart';
+import 'package:weather/features/weather/widgets/failure_widget.dart';
+import 'package:weather/features/weather/widgets/main/main_widget.dart';
 
 class WeatherPage extends StatefulWidget {
   const WeatherPage({super.key});

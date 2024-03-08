@@ -2,8 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather_app/core/weather_bloc/weather_bloc.dart';
-import 'package:weather_app/core/domain/models/current_weather/current_weather.dart';
+import 'package:weather/core/weather_bloc/weather_bloc.dart';
+import 'package:weather/core/domain/models/current_weather/current_weather.dart';
 
 class BackgroundBlurWidget extends StatelessWidget {
   final int code;

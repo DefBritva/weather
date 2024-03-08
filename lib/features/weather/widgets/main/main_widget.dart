@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather_app/core/weather_bloc/weather_bloc.dart';
-import 'package:weather_app/core/domain/models/current_weather/current_weather.dart';
-import 'package:weather_app/core/routing/navigation.dart';
-import 'package:weather_app/features/weather/widgets/main/weather_list.dart';
+import 'package:weather/core/weather_bloc/weather_bloc.dart';
+import 'package:weather/core/domain/models/current_weather/current_weather.dart';
+import 'package:weather/core/routing/navigation.dart';
+import 'package:weather/features/weather/widgets/main/weather_list.dart';
 
 class MainWidget extends StatelessWidget {
   const MainWidget({
@@ -76,7 +76,7 @@ class MainWidget extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     child: GestureDetector(
                       onTap: () {
-                        AppNavigation.goMap(context);
+                        //TODO go map impl
                       },
                       child: const Icon(
                         Icons.map,
@@ -96,7 +96,7 @@ class MainWidget extends StatelessWidget {
                     alignment: Alignment.centerRight,
                     child: GestureDetector(
                       onTap: () {
-                        AppNavigation.goSearch(context);
+                        //TODO go search impl
                       },
                       child: const Icon(
                         Icons.menu,

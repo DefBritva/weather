@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather_app/core/weather_bloc/weather_bloc.dart';
-import 'package:weather_app/core/domain/models/current_weather/current_weather.dart';
-import 'package:weather_app/features/weather/widgets/background_blur_widget.dart';
+import 'package:weather/core/weather_bloc/weather_bloc.dart';
+import 'package:weather/core/domain/models/current_weather/current_weather.dart';
+import 'package:weather/features/weather/widgets/background_blur_widget.dart';
 
 class FailureWidget extends StatelessWidget {
   final String message;

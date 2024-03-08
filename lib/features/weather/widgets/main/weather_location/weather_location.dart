@@ -2,15 +2,16 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather_app/core/domain/models/current_weather/current_weather.dart';
-import 'package:weather_app/core/styles/styles.dart';
-import 'package:weather_app/core/weather_bloc/weather_bloc.dart';
-import 'package:weather_app/core/utils/gest.dart';
-import 'package:weather_app/features/weather/widgets/main/weather_location/hourly_weather_widget.dart';
-import 'package:weather_app/features/weather/widgets/main/weather_location/weather_details.dart';
-import 'package:weather_app/features/weather/widgets/main/weather_location/weather_forecast_three_days.dart';
-import 'package:weather_app/features/weather/widgets/main/weather_location/weather_image_and_stats.dart';
-import 'package:weather_app/resources/resources.dart';
+
+import 'package:weather/core/domain/models/current_weather/current_weather.dart';
+import 'package:weather/core/styles/styles.dart';
+import 'package:weather/core/utils/gest.dart';
+import 'package:weather/core/weather_bloc/weather_bloc.dart';
+import 'package:weather/features/weather/widgets/main/weather_location/hourly_weather_widget.dart';
+import 'package:weather/features/weather/widgets/main/weather_location/weather_details.dart';
+import 'package:weather/features/weather/widgets/main/weather_location/weather_forecast_three_days.dart';
+import 'package:weather/features/weather/widgets/main/weather_location/weather_image_and_stats.dart';
+import 'package:weather/resources/resources.dart';
 
 class WeatherLocation extends StatelessWidget {
   const WeatherLocation({super.key});
@@ -87,64 +88,6 @@ class WeatherLocation extends StatelessWidget {
                     height: constraints.maxHeight * 0.14,
                     child: HourlyWeatherWidget(
                       size: constraints.maxHeight * 0.14,
-                    ),
-                  ),
-                ),
-              ),
-              SliverPadding(
-                padding: EdgeInsets.only(top: currentWidth < 600 ? 8 : 20),
-                sliver: SliverToBoxAdapter(
-                  child: RawGestureDetector(
-                    behavior: HitTestBehavior.translucent,
-                    gestures: {
-                      AllowMultipleHorizontalDragGestureRecognizer:
-                          GestureRecognizerFactoryWithHandlers<
-                              AllowMultipleHorizontalDragGestureRecognizer>(
-                        () => AllowMultipleHorizontalDragGestureRecognizer(),
-                        (AllowMultipleHorizontalDragGestureRecognizer
-                            instance) {
-                          instance.onEnd = onHorizontalDragEnd;
-                        },
-                      )
-                    },
-                    child: Padding(
-                      padding: MediaQuery.of(context).size.width < 900
-                          ? _buildInsets(
-                              context,
-                              insets: MediaQuery.of(context).size.width / 5,
-                            )
-                          : const EdgeInsets.all(0),
-                      child: const WeatherForecastForThreeDays(),
-                    ),
-                  ),
-                ),
-              ),
-              SliverPadding(
-                padding: EdgeInsets.only(
-                    top: currentWidth < 600 ? 8 : 20,
-                    bottom: currentWidth < 600 ? 8 : 20),
-                sliver: SliverToBoxAdapter(
-                  child: RawGestureDetector(
-                    behavior: HitTestBehavior.translucent,
-                    gestures: {
-                      AllowMultipleHorizontalDragGestureRecognizer:
-                          GestureRecognizerFactoryWithHandlers<
-                              AllowMultipleHorizontalDragGestureRecognizer>(
-                        () => AllowMultipleHorizontalDragGestureRecognizer(),
-                        (AllowMultipleHorizontalDragGestureRecognizer
-                            instance) {
-                          instance.onEnd = onHorizontalDragEnd;
-                        },
-                      )
-                    },
-                    child: Padding(
-                      padding: MediaQuery.of(context).size.width < 900
-                          ? _buildInsets(
-                              context,
-                              insets: MediaQuery.of(context).size.width / 5,
-                            )
-                          : const EdgeInsets.all(0),
-                      child: const WeatherDetails(),
                     ),
                   ),
                 ),

@@ -1,10 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather_app/core/weather_bloc/weather_bloc.dart';
-import 'package:weather_app/core/domain/models/current_weather/current_weather.dart';
-import 'package:weather_app/core/styles/styles.dart';
-import 'package:weather_app/core/utils/weather_image.dart';
+import 'package:weather/core/weather_bloc/weather_bloc.dart';
+import 'package:weather/core/domain/models/current_weather/current_weather.dart';
+import 'package:weather/core/styles/styles.dart';
+import 'package:weather/core/utils/weather_image.dart';
 
 class WeatherForecastForThreeDays extends StatelessWidget {
   const WeatherForecastForThreeDays({

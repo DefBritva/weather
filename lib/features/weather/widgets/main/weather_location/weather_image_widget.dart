@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/core/domain/models/current_weather/current_weather.dart';
-import 'package:weather_app/core/utils/weather_image.dart';
+import 'package:weather/core/domain/models/current_weather/current_weather.dart';
+import 'package:weather/core/utils/weather_image.dart';
 
 class WeatherImageWidget extends StatelessWidget {
   final int code;

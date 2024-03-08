@@ -1,4 +1,4 @@
-import 'package:weather_app/resources/resources.dart';
+import 'package:weather/resources/resources.dart';
 
 String dayImage(int code) {
   final String dayWeatherImage = switch (code) {

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
-import 'package:weather_app/core/weather_bloc/weather_bloc.dart';
-import 'package:weather_app/features/weather/widgets/background_blur_widget.dart';
-import 'package:weather_app/features/weather/widgets/main/weather_location/weather_location.dart';
+import 'package:weather/core/weather_bloc/weather_bloc.dart';
+import 'package:weather/features/weather/widgets/background_blur_widget.dart';
+import 'package:weather/features/weather/widgets/main/weather_location/weather_location.dart';
 
 class WeatherList extends StatefulWidget {
   const WeatherList({

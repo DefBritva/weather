@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather_app/core/weather_bloc/weather_bloc.dart';
-import 'package:weather_app/features/weather/widgets/main/weather_location/weather_location.dart';
-import 'package:weather_app/resources/resources.dart';
+import 'package:weather/core/weather_bloc/weather_bloc.dart';
+import 'package:weather/features/weather/widgets/main/weather_location/weather_location.dart';
+import 'package:weather/resources/resources.dart';
 
 class WeatherDetails extends StatelessWidget {
   const WeatherDetails({super.key});

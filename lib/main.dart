@@ -1,12 +1,19 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:weather/core/domain/services/weather_repos.dart';
+import 'package:weather/core/weather_bloc/weather_bloc.dart';
+import 'package:weather/core/weather_bloc/obs.dart';
+import 'package:weather/core/routing/routes.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  final repos = WeatherRepositoryImpl();
-  await repos.getLocalWeather();
-  await repos.getWetherFromLocation(
-      coords: '37.6155600 55.7522200', location: 'Москва');
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  await Future.delayed(const Duration(milliseconds: 1000));
+  Bloc.observer = MyBlocObserver();
   runApp(const MainApp());
 }
 
@@ -15,11 +22,48 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
+    return MultiRepositoryProvider(
+      providers: [
+        RepositoryProvider(
+          create: (context) => WeatherRepositoryImpl(),
         ),
+      ],
+      child: const Main(),
+    );
+  }
+}
+
+class Main extends StatelessWidget {
+  const Main({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => WeatherBloc(
+        weatherRepository: context.read<WeatherRepositoryImpl>(),
+      ),
+      child: MaterialApp(
+        scrollBehavior: const MaterialScrollBehavior().copyWith(
+          dragDevices: {
+            PointerDeviceKind.mouse,
+            PointerDeviceKind.touch,
+            PointerDeviceKind.stylus,
+            PointerDeviceKind.unknown
+          },
+        ),
+        localizationsDelegates: const [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: const [
+          Locale('ru'),
+        ],
+        debugShowCheckedModeBanner: false,
+        onGenerateRoute: AppRoutes.generateRote,
+        initialRoute: AppRoutes.home,
       ),
     );
   }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
-import 'package:weather_app/core/domain/models/current_weather/current_weather.dart';
-import 'package:weather_app/features/weather/widgets/background_blur_widget.dart';
+import 'package:weather/core/domain/models/current_weather/current_weather.dart';
+import 'package:weather/features/weather/widgets/background_blur_widget.dart';
 
 class LoadingWidget extends StatelessWidget {
   const LoadingWidget({
