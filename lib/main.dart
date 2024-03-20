@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:weather/core/domain/services/city_search.dart';
 import 'package:weather/core/domain/services/weather_repos.dart';
 import 'package:weather/core/weather_bloc/weather_bloc.dart';
 import 'package:weather/core/weather_bloc/obs.dart';
@@ -10,6 +11,10 @@ import 'package:weather/core/routing/routes.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
+  final search = CitySearchImpl();
+  final res = await search.search('Моск');
+  debugPrint(res.toString());
+
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   await Future.delayed(const Duration(milliseconds: 1000));
