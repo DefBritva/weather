@@ -76,7 +76,7 @@ class MainWidget extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     child: GestureDetector(
                       onTap: () {
-                        //TODO Navigation to map
+                        //TODO: go map impl
                       },
                       child: const Icon(
                         Icons.map,
@@ -96,7 +96,7 @@ class MainWidget extends StatelessWidget {
                     alignment: Alignment.centerRight,
                     child: GestureDetector(
                       onTap: () {
-                        //TODO Navigation to saerch
+                        AppNavigation.goSearch(context);
                       },
                       child: const Icon(
                         Icons.menu,
