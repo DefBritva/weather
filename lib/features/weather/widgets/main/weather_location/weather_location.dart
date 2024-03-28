@@ -54,7 +54,6 @@ class WeatherLocation extends StatelessWidget {
       child: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
           return CustomScrollView(
-            physics: const ClampingScrollPhysics(),
             slivers: [
               SliverToBoxAdapter(
                 child: Padding(
