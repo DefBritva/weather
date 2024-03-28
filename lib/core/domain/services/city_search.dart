@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:weather/core/domain/entities/dio_singl.dart';
 
 abstract class CitySearch {
   Future<List<String>> search(String name);
@@ -10,7 +11,7 @@ class CitySearchImpl implements CitySearch {
   Future<List<String>> search(String name) async {
     if (_isValide(name)) {
       try {
-        final dio = Dio();
+        final dio = DioSingleton.instance.dio;
         final response = await dio.get(
             'https://suggest-maps.yandex.ru/v1/suggest?apikey=e9fe79c7-2662-40a2-8166-fefa57f8296c&text=$name'
             '&lang=ru'

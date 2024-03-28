@@ -3,16 +3,19 @@ import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:weather/core/data/response/weather_response.dart';
+import 'package:weather/core/domain/entities/dio_singl.dart';
 import 'package:weather/core/domain/models/weather_location/weather_location.dart';
 
 abstract class WeatherRepository {
+  Future<Position> getLocation();
   Future<WeatherLocation> getLocalWeather();
   Future<WeatherLocation> getWetherFromLocation(
       {required String location, required String coords});
 }
 
 class WeatherRepositoryImpl implements WeatherRepository {
-  Future<Position> _getLocation() async {
+  @override
+  Future<Position> getLocation() async {
     bool serviceEnabled;
     LocationPermission permission;
 
@@ -39,11 +42,11 @@ class WeatherRepositoryImpl implements WeatherRepository {
 
   @override
   Future<WeatherLocation> getLocalWeather() async {
-    final loc = await _getLocation();
+    final loc = await getLocation();
     final latitude = loc.latitude;
     final longitude = loc.longitude;
     final coordinates = '$latitude,$longitude';
-    final dio = Dio();
+    final dio = DioSingleton.instance.dio;
     final response = await dio
         .get('http://api.weatherapi.com/v1/forecast.json', queryParameters: {
       'key': '72c01051c1e94e9d973120435241401',
@@ -60,12 +63,11 @@ class WeatherRepositoryImpl implements WeatherRepository {
   Future<WeatherLocation> getWetherFromLocation(
       {required String location, required String coords}) async {
     try {
-      final dio = Dio();
+      final dio = DioSingleton.instance.dio;
 
       final coordsList = coords.split(' ');
-      final longitude = coordsList[0]; // Долгота
       final latitude = coordsList[1]; // Широта
-
+      final longitude = coordsList[0]; // Долгота
       final coordinates = '$latitude,$longitude';
 
       final response = await dio
