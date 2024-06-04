@@ -1,5 +1,4 @@
 # weather_app
 
-<p align="center" width="100%">
-    <img width="33%" src="https://github.com/DefBritva/weather/tree/main/git_images/1.jpg">
-</p>
+
+![ScreenShot]([https://raw.githubusercontent.com/i-saumitra/Voice-controlled-MP3-Player/master/screenshot.jpg](https://github.com/DefBritva/weather/tree/main/git_images/1.jpg))
