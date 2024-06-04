@@ -8,7 +8,9 @@ import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:weather_app/core/domain/models/weather_location/weather_location.dart';
 import 'package:weather_app/core/domain/services/weather_repos.dart';
+import 'package:weather_app/core/utils/connection_checker.dart';
 import 'package:weather_app/core/utils/string.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 part 'weather_event.dart';
 part 'weather_state.dart';
@@ -30,6 +32,11 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
 
     on<_GetWeather>(
       (event, emit) async {
+        if (!ConnectionStatusSingleton.getInstance().hasConnection) {
+          emit(const _Failure(message: 'No internet connection'));
+          return;
+        }
+
         emit(const _Loading());
 
         try {

@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:weather_app/core/domain/entities/dio_singl.dart';
+import 'package:weather_app/core/utils/dio_singl.dart';
 
 abstract class CitySearch {
   Future<List<String>> search(String name);

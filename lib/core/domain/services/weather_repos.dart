@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:weather_app/core/data/response/weather_response.dart';
-import 'package:weather_app/core/domain/entities/dio_singl.dart';
+import 'package:weather_app/core/utils/dio_singl.dart';
 import 'package:weather_app/core/domain/models/weather_location/weather_location.dart';
 
 abstract class WeatherRepository {

@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:weather_app/core/utils/connection_checker.dart';
 import 'package:weather_app/core/weather_bloc/obs.dart';
 import 'package:weather_app/core/weather_bloc/weather_bloc.dart';
 import 'package:weather_app/core/domain/services/city_search.dart';
@@ -12,6 +13,10 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  ConnectionStatusSingleton connectionStatus =
+      ConnectionStatusSingleton.getInstance();
+  connectionStatus.initialize();
+
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   await Future.delayed(const Duration(milliseconds: 1000));
   Bloc.observer = MyBlocObserver();

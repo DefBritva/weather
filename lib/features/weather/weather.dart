@@ -7,6 +7,7 @@ import 'package:weather_app/core/utils/user_settings.dart';
 import 'package:weather_app/core/weather_bloc/weather_bloc.dart';
 import 'package:weather_app/core/widgets/none.dart';
 import 'package:weather_app/features/weather/widgets/failure_widget.dart';
+import 'package:weather_app/features/weather/widgets/loading_widget.dart';
 import 'package:weather_app/features/weather/widgets/main/main_widget.dart';
 
 class WeatherPage extends StatefulWidget {
@@ -28,6 +29,7 @@ class _WeatherPageState extends State<WeatherPage> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<WeatherBloc>();
     return AnnotatedRegion(
       value: const SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
@@ -35,11 +37,17 @@ class _WeatherPageState extends State<WeatherPage> {
       child: BlocConsumer<WeatherBloc, WeatherState>(
         builder: (context, state) {
           return state.whenOrNull(
+                loading: () {
+                  return const LoadingWidget();
+                },
                 main: (weather, _, current) {
                   final dayTime = weather[current].currentWeather.dayTimes;
                   return MainWidget(dayTime: dayTime);
                 },
-                failure: (String message) => FailureWidget(message),
+                failure: (String message) {
+                  FlutterNativeSplash.remove();
+                  return FailureWidget(message);
+                },
               ) ??
               None;
         },
