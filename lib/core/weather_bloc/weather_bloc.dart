@@ -10,7 +10,6 @@ import 'package:weather_app/core/domain/models/weather_location/weather_location
 import 'package:weather_app/core/domain/services/weather_repos.dart';
 import 'package:weather_app/core/utils/connection_checker.dart';
 import 'package:weather_app/core/utils/string.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 part 'weather_event.dart';
 part 'weather_state.dart';

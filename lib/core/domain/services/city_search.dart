@@ -7,6 +7,8 @@ abstract class CitySearch {
 }
 
 class CitySearchImpl implements CitySearch {
+  final Dio _dio;
+  CitySearchImpl({Dio? dio}) : _dio = dio ?? DioSingleton.instance.dio;
   @override
   Future<List<String>> search(String name) async {
     if (_isValide(name)) {

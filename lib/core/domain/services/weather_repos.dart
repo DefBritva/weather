@@ -14,6 +14,8 @@ abstract class WeatherRepository {
 }
 
 class WeatherRepositoryImpl implements WeatherRepository {
+  final Dio _dio;
+  WeatherRepositoryImpl({Dio? dio}) : _dio = dio ?? DioSingleton.instance.dio;
   @override
   Future<Position> getLocation() async {
     bool serviceEnabled;
